@@ -1,0 +1,742 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Fri Aug 11 11:40:42 2023
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect
+Enter user-name: Patil/Patil
+Connected.
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000
+        20
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 12-JAN-83       1100
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+14 rows selected.
+
+SQL> desc pet;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(20)
+ OWNER                                              VARCHAR2(20)
+ SPECIES                                            VARCHAR2(20)
+
+SQL> clear()
+SP2-0158: unknown CLEAR option "()"
+SQL> clear
+SQL> ;
+  1* select * from emp
+SQL>
+SQL>
+SQL> DESC CUSTOMER;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CUSTOMER_ID                                        VARCHAR2(20)
+ FNAME                                              VARCHAR2(20)
+ LNAME                                              VARCHAR2(20)
+ STREET                                             VARCHAR2(20)
+ TOWN                                               VARCHAR2(20)
+ CITY                                               VARCHAR2(20)
+ CONTACTNUMBER                                      NUMBER(10)
+
+SQL> select table_name from user_tables;
+
+TABLE_NAME
+------------------------------
+DEPT
+EMP
+DEMO_USERS
+DEMO_CUSTOMERS
+DEMO_ORDERS
+DEMO_PRODUCT_INFO
+DEMO_ORDER_ITEMS
+DEMO_STATES
+APEX$_ACL
+APEX$_WS_WEBPG_SECTIONS
+APEX$_WS_ROWS
+
+TABLE_NAME
+------------------------------
+APEX$_WS_HISTORY
+APEX$_WS_NOTES
+APEX$_WS_LINKS
+APEX$_WS_TAGS
+APEX$_WS_FILES
+APEX$_WS_WEBPG_SECTION_HISTORY
+HTMLDB_PLAN_TABLE
+PET
+CUSTOMER
+
+20 rows selected.
+
+SQL> alter table pet add sec varchar2(10;
+alter table pet add sec varchar2(10
+                                  *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> alter table pet add sec varchar2(1);
+
+Table altered.
+
+SQL> desc pet
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(20)
+ OWNER                                              VARCHAR2(20)
+ SPECIES                                            VARCHAR2(20)
+ SEC                                                VARCHAR2(1)
+
+SQL> alter table pet delete sec ;
+alter table pet delete sec
+                *
+ERROR at line 1:
+ORA-01735: invalid ALTER TABLE option
+
+
+SQL> ALTER TABLE Customers
+  2  ALTER TABLE Customers
+  3  ;
+ALTER TABLE Customers
+*
+ERROR at line 2:
+ORA-01735: invalid ALTER TABLE option
+
+
+SQL> alter table pet add(BIRTH date,DEATH date);
+
+Table altered.
+
+SQL> alter table pet drop column sex;
+alter table pet drop column sex
+                            *
+ERROR at line 1:
+ORA-00904: "SEX": invalid identifier
+
+
+SQL> alter table pet drop column sec;
+
+Table altered.
+
+SQL> alter table pet delete sex ;
+alter table pet delete sex
+                *
+ERROR at line 1:
+ORA-01735: invalid ALTER TABLE option
+
+
+SQL> alter table pet add sex varchar2(1);
+
+Table altered.
+
+SQL> alter table pet drop column death;
+
+Table altered.
+
+SQL> desc pet;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(20)
+ OWNER                                              VARCHAR2(20)
+ SPECIES                                            VARCHAR2(20)
+ BIRTH                                              DATE
+ SEX                                                VARCHAR2(1)
+
+SQL> alter table pet modify sex varchar2(10);
+
+Table altered.
+
+SQL> alter table pet rename column sex to gender;
+
+Table altered.
+
+SQL> rename pet to pet_animal;
+
+Table renamed.
+
+SQL> rename pet to pet_animal;
+
+
+
+
+
+
+
+SQL*Plus: Release 11.2.0.2.0 Production on Fri Aug 11 11:40:42 2023
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect
+Enter user-name: Patil/Patil
+Connected.
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000
+        20
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 12-JAN-83       1100
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+14 rows selected.
+
+SQL> desc pet;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(20)
+ OWNER                                              VARCHAR2(20)
+ SPECIES                                            VARCHAR2(20)
+
+SQL> clear()
+SP2-0158: unknown CLEAR option "()"
+SQL> clear
+SQL> ;
+  1* select * from emp
+SQL>
+SQL>
+SQL> DESC CUSTOMER;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CUSTOMER_ID                                        VARCHAR2(20)
+ FNAME                                              VARCHAR2(20)
+ LNAME                                              VARCHAR2(20)
+ STREET                                             VARCHAR2(20)
+ TOWN                                               VARCHAR2(20)
+ CITY                                               VARCHAR2(20)
+ CONTACTNUMBER                                      NUMBER(10)
+
+SQL> select table_name from user_tables;
+
+TABLE_NAME
+------------------------------
+DEPT
+EMP
+DEMO_USERS
+DEMO_CUSTOMERS
+DEMO_ORDERS
+DEMO_PRODUCT_INFO
+DEMO_ORDER_ITEMS
+DEMO_STATES
+APEX$_ACL
+APEX$_WS_WEBPG_SECTIONS
+APEX$_WS_ROWS
+
+TABLE_NAME
+------------------------------
+APEX$_WS_HISTORY
+APEX$_WS_NOTES
+APEX$_WS_LINKS
+APEX$_WS_TAGS
+APEX$_WS_FILES
+APEX$_WS_WEBPG_SECTION_HISTORY
+HTMLDB_PLAN_TABLE
+PET
+CUSTOMER
+
+20 rows selected.
+
+SQL> alter table pet add sec varchar2(10;
+alter table pet add sec varchar2(10
+                                  *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> alter table pet add sec varchar2(1);
+
+Table altered.
+
+SQL> desc pet
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(20)
+ OWNER                                              VARCHAR2(20)
+ SPECIES                                            VARCHAR2(20)
+ SEC                                                VARCHAR2(1)
+
+SQL> alter table pet delete sec ;
+alter table pet delete sec
+                *
+ERROR at line 1:
+ORA-01735: invalid ALTER TABLE option
+
+
+SQL> ALTER TABLE Customers
+  2  ALTER TABLE Customers
+  3  ;
+ALTER TABLE Customers
+*
+ERROR at line 2:
+ORA-01735: invalid ALTER TABLE option
+
+
+SQL> alter table pet add(BIRTH date,DEATH date);
+
+Table altered.
+
+SQL> alter table pet drop column sex;
+alter table pet drop column sex
+                            *
+ERROR at line 1:
+ORA-00904: "SEX": invalid identifier
+
+
+SQL> alter table pet drop column sec;
+
+Table altered.
+
+SQL> alter table pet delete sex ;
+alter table pet delete sex
+                *
+ERROR at line 1:
+ORA-01735: invalid ALTER TABLE option
+
+
+SQL> alter table pet add sex varchar2(1);
+
+Table altered.
+
+SQL> alter table pet drop column death;
+
+Table altered.
+
+SQL> desc pet;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ NAME                                               VARCHAR2(20)
+ OWNER                                              VARCHAR2(20)
+ SPECIES                                            VARCHAR2(20)
+ BIRTH                                              DATE
+ SEX                                                VARCHAR2(1)
+
+SQL> alter table pet modify sex varchar2(10);
+
+Table altered.
+
+SQL> alter table pet rename column sex to gender;
+
+Table altered.
+
+SQL> rename pet to pet_animal;
+
+Table renamed.
+
+SQL> drop table pet_animal;
+
+Table dropped.
+
+SQL> select table_name from user_tables;
+
+TABLE_NAME
+------------------------------
+DEPT
+EMP
+DEMO_USERS
+DEMO_CUSTOMERS
+DEMO_ORDERS
+DEMO_PRODUCT_INFO
+DEMO_ORDER_ITEMS
+DEMO_STATES
+APEX$_ACL
+APEX$_WS_WEBPG_SECTIONS
+APEX$_WS_ROWS
+
+TABLE_NAME
+------------------------------
+APEX$_WS_HISTORY
+APEX$_WS_NOTES
+APEX$_WS_LINKS
+APEX$_WS_TAGS
+APEX$_WS_FILES
+APEX$_WS_WEBPG_SECTION_HISTORY
+HTMLDB_PLAN_TABLE
+CUSTOMER
+
+19 rows selected.
+
+SQL> desc Agent_Details;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ AGENT_CODE                                NOT NULL VARCHAR2(6)
+ AGENT_NAME                                NOT NULL VARCHAR2(6)
+ AGENT_AREA                                NOT NULL VARCHAR2(6)
+
+SQL> desc Order_Details;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ORD_NUM                                            NUMBER(6)
+ ORD_AMOUNT                                NOT NULL NUMBER(12,2)
+ ORD_DATE                                           DATE
+ CUST_CODE                                          VARCHAR2(6)
+ AGENT_CODE                                         VARCHAR2(6)
+
+SQL> desc Order_Details;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ORD_NUM                                   NOT NULL NUMBER(6)
+ ORD_AMOUNT                                         NUMBER(12,2)
+ ORD_DATE                                  NOT NULL DATE
+ CUST_CODE                                 NOT NULL VARCHAR2(6)
+ AGENT_CODE                                NOT NULL VARCHAR2(6)
+
+SQL> desc person_Details;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PERSON_ID                                 NOT NULL NUMBER
+ PERSON_NAME                               NOT NULL VARCHAR2(32)
+ PERSON_GENDER                                      VARCHAR2(1)
+ PERSON_DOB                                NOT NULL DATE
+ PERSON_EMAIL                              NOT NULL VARCHAR2(32)
+
+SQL> alter table person_detaila add person_city varchar(32);
+alter table person_detaila add person_city varchar(32)
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> alter table person_details add person_city varchar(32);
+
+Table altered.
+
+SQL> desc person_Details;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PERSON_ID                                 NOT NULL NUMBER
+ PERSON_NAME                               NOT NULL VARCHAR2(32)
+ PERSON_GENDER                                      VARCHAR2(1)
+ PERSON_DOB                                NOT NULL DATE
+ PERSON_EMAIL                              NOT NULL VARCHAR2(32)
+ PERSON_CITY                                        VARCHAR2(32)
+
+SQL> alter table person_details add CONSTRAINT DEFAULT(person_city);
+alter table person_details add CONSTRAINT DEFAULT(person_city)
+                                                  *
+ERROR at line 1:
+ORA-00984: column not allowed here
+
+
+SQL> alter table person_details add CONSTRAINT df_City
+  2  DEFAULT 'PUNE' FOR person_City;
+DEFAULT 'PUNE' FOR person_City
+*
+ERROR at line 2:
+ORA-00904: : invalid identifier
+
+
+SQL> ALTER TABLE Person_details
+  2  ADD CONSTRAINT df_City
+  3  DEFAULT 'Pune' FOR  PERSON_CITY;
+DEFAULT 'Pune' FOR  PERSON_CITY
+*
+ERROR at line 3:
+ORA-00904: : invalid identifier
+
+
+SQL> ALTER TABLE Person_details
+  2  ADD CONSTRAINT df_City
+  3  DEFAULT "Pune" FOR  PERSON_CITY;
+DEFAULT "Pune" FOR  PERSON_CITY
+*
+ERROR at line 3:
+ORA-00904: : invalid identifier
+
+
+SQL> ALTER TABLE Persons_details
+  2  DEFAULT "Pune" FOR  PERSON_CITY;
+DEFAULT "Pune" FOR  PERSON_CITY
+        *
+ERROR at line 2:
+ORA-30649: missing DIRECTORY keyword
+
+
+SQL> ALTER TABLE person_Details MODIFY  PERSON_CITY DEFAULT 'Pune';
+
+Table altered.
+
+SQL> //Default
+
+Table altered.
+
+SQL> desc person_Details
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PERSON_ID                                 NOT NULL NUMBER
+ PERSON_NAME                               NOT NULL VARCHAR2(32)
+ PERSON_GENDER                                      VARCHAR2(1)
+ PERSON_DOB                                NOT NULL DATE
+ PERSON_EMAIL                              NOT NULL VARCHAR2(32)
+ PERSON_CITY                                        VARCHAR2(32)
+
+SQL> alter table person_details add person_age number(3);
+
+Table altered.
+
+SQL> alter table person_details add CONSTRAINT check(person_age);
+alter table person_details add CONSTRAINT check(person_age)
+                                                          *
+ERROR at line 1:
+ORA-00920: invalid relational operator
+
+
+SQL> alter table person_details add CONSTRAINT check(person_age)
+  2  ;
+alter table person_details add CONSTRAINT check(person_age)
+                                                          *
+ERROR at line 1:
+ORA-00920: invalid relational operator
+
+
+SQL> alter table person_details add CONSTRAINT CHECK (person_age)
+  2  ;
+alter table person_details add CONSTRAINT CHECK (person_age)
+                                                           *
+ERROR at line 1:
+ORA-00920: invalid relational operator
+
+
+SQL> desc person_details;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PERSON_ID                                 NOT NULL NUMBER
+ PERSON_NAME                               NOT NULL VARCHAR2(32)
+ PERSON_GENDER                                      VARCHAR2(1)
+ PERSON_DOB                                NOT NULL DATE
+ PERSON_EMAIL                              NOT NULL VARCHAR2(32)
+ PERSON_CITY                                        VARCHAR2(32)
+ PERSON_AGE                                         NUMBER(3)
+
+SQL> alter table person_details add CONSTRAINT check(person_age>=18);
+alter table person_details add CONSTRAINT check(person_age>=18)
+                                                              *
+ERROR at line 1:
+ORA-02438: Column check constraint cannot reference other columns
+
+
+SQL> alter table person_details add CONSTRAINT age_check check(person_age>=18);
+
+Table altered.
+
+SQL> desc person_details;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PERSON_ID                                 NOT NULL NUMBER
+ PERSON_NAME                               NOT NULL VARCHAR2(32)
+ PERSON_GENDER                                      VARCHAR2(1)
+ PERSON_DOB                                NOT NULL DATE
+ PERSON_EMAIL                              NOT NULL VARCHAR2(32)
+ PERSON_CITY                                        VARCHAR2(32)
+ PERSON_AGE                                         NUMBER(3)
+
+SQL> select table_name from user_tables;
+
+TABLE_NAME
+------------------------------
+DEPT
+EMP
+DEMO_USERS
+DEMO_CUSTOMERS
+DEMO_ORDERS
+DEMO_PRODUCT_INFO
+DEMO_ORDER_ITEMS
+DEMO_STATES
+APEX$_ACL
+APEX$_WS_WEBPG_SECTIONS
+APEX$_WS_ROWS
+
+TABLE_NAME
+------------------------------
+APEX$_WS_HISTORY
+APEX$_WS_NOTES
+APEX$_WS_LINKS
+APEX$_WS_TAGS
+APEX$_WS_FILES
+APEX$_WS_WEBPG_SECTION_HISTORY
+HTMLDB_PLAN_TABLE
+CUSTOMER
+AGENT_DETAILS
+ORDER_DETAILS
+PERSON_DETAILS
+
+22 rows selected.
+
+SQL> desc order_details
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ORD_NUM                                   NOT NULL NUMBER(6)
+ ORD_AMOUNT                                         NUMBER(12,2)
+ ORD_DATE                                  NOT NULL DATE
+ CUST_CODE                                 NOT NULL VARCHAR2(6)
+ AGENT_CODE                                NOT NULL VARCHAR2(6)
+
+SQL> desc customer
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CUSTOMER_ID                               NOT NULL VARCHAR2(20)
+ FNAME                                              VARCHAR2(20)
+ LNAME                                              VARCHAR2(20)
+ STREET                                             VARCHAR2(20)
+ TOWN                                               VARCHAR2(20)
+ CITY                                               VARCHAR2(20)
+ CONTACTNUMBER                                      NUMBER(10)
+
+SQL> alter table customer modify CUSTOMER_ID number;
+
+Table altered.
+
+SQL>
+
+
+
+===========================================================================
+select * from hr.employees;
+
+select JOB_ID,avg(salary) from hr.employees group by(job_id) having avg(salary) > 10000;
+
+select EXTRACT(YEAR FROM HIRE_DATE) from hr.employees;
+select EXTRACT(YEAR FROM HIRE_DATE) from hr.employees group by(EXTRACT(YEAR FROM HIRE_DATE)) having EXTRACT(YEAR FROM HIRE_DATE) >10;
+
+select DEPARTMENT_ID from hr.employees
+where COMMISSION_PCT is NOT NULL
+group by DEPARTMENT_ID
+having count(COMMISSION_PCT)>3;
+
+
+
+
+
+CREATE TABLE CUSTOMERS(
+    customer_id number primary key,
+    first_name varchar2(255) not null,
+    last_name varchar2(255) not null,
+    phone varchar2(25),
+    email varchar2(255) not null,
+    street varchar2(255),
+    city varchar2(50),
+    state varchar2(25) default 'Pune',
+    zip_code varchar2(5)
+);
